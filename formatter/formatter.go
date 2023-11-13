@@ -44,7 +44,7 @@ func formatResponseInBlocks(response []byte, colorize bool, keyColorName string,
     }
     keyColor := getColorFromName(keyColorName, defaultKeyColor)
     valueColor := getColorFromName(valueColorName, defaultValueColor)
-		return resp.GetResponse(geoResp, keyColor, valueColor)
+		return resp.GetResponse(geoResp, keyColor, valueColor, colorize)
 }
 
 func formatJSON(resp models.GeolocationResponse, compact bool) string {
