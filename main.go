@@ -18,14 +18,14 @@ func main() {
 	if err := dbmanager.OpenDB(); err != nil {
 		fmt.Println("Failed to open the database:", err)
 		return
-  }
-    defer dbmanager.CloseDB()
+	}
+	defer dbmanager.CloseDB()
 	command := os.Args[1]
 	switch command {
 	case "config":
 		config.HandleConfig(os.Args[2:])
 	case "cache":
-        cache.HandleCacheCommand(os.Args[2:])
+		cache.HandleCacheCommand(os.Args[2:])
 	case "version":
 		fmt.Println("ipgeo version 1.0.0")
 	case "help":
@@ -40,7 +40,7 @@ func printHelp() {
 	fmt.Println("Commands:")
 	fmt.Println("  <ip/domain> - Look up details for an IP address or domain, e.g., 1.1.1.1 or google.com")
 	fmt.Println("  config      - Manage the configuration. Use 'login' or 'logout'.")
-	fmt.Println("  cache       - Manage the cache. Use 'clear', 'count', 'enable', 'disable', 'status', or 'ttl'.")
+	fmt.Println("  cache       - Manage the cache. Use 'clear', 'count', 'enable', 'disable', or 'status'.")
 	fmt.Println("  version     - Show current version.")
 	fmt.Println("  help        - Show this help information.")
 
@@ -56,13 +56,11 @@ func printHelp() {
 	fmt.Println("  --include <fields>, -i <fields>     - Include additional query parameters in API request.")
 	fmt.Println("  --exclude <fields>, -e <fields>     - Exclude query parameters from API request.")
 	fmt.Println("  --key-color <color>           - Specify the color for keys in output.")
-  fmt.Println("  --value-color <color>         - Specify the color for values in output.")
+	fmt.Println("  --value-color <color>         - Specify the color for values in output.")
 	fmt.Println("  --compact                  	 - Output json in raw form.")
 	fmt.Println("  --json, -j                    - Output in JSON format.")
-	fmt.Println("  --csv, -c                     - Output in CSV format.")
 	fmt.Println("  --yaml, -y                    - Output in YAML format.")
 	fmt.Println("  --xml, -x                     - Output in XML format.")
 	fmt.Println("  --no-cache                    - Bypass the cache and make a new API request.")
-	fmt.Println("  --nocolor                     - Disable colorized output.")
+	fmt.Println("  --no-color                     - Disable colorized output.")
 }
-

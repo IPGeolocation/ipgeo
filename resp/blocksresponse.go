@@ -10,7 +10,7 @@ import (
 )
 
 
-func GetResponse(geoResp models.GeolocationResponse, keyColor *color.Color, valueColor *color.Color, colorize bool) string {
+func GetResponseInBlocks(geoResp models.GeolocationResponse, keyColor *color.Color, valueColor *color.Color, colorize bool) string {
     white := color.New(color.FgWhite)
     bold := color.New(color.Bold)
     outputBuilder := &strings.Builder{}
