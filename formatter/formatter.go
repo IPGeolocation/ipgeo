@@ -20,6 +20,12 @@ func FormatResponse(response []byte, format string, colorize bool, compact bool,
 		return resp.GetResponseInYAML(response), nil
 	case "xml":
 		return resp.GetResponseInXML(response), nil
+	case "table":
+		return resp.GetResponseInTable(response), nil
+	case "tree":
+		keyColor := getColorFromName(keyColorName, defaultKeyColor)
+		valueColor := getColorFromName(valueColorName, defaultValueColor)
+		return resp.GetResponseInTreeView(response, colorize, keyColor, valueColor), nil
 	default:
 		var geoResp models.GeolocationResponse
 		if err := json.Unmarshal(response, &geoResp); err != nil {

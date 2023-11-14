@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/IPGeolocation/ipgeo/apiclient"
+	"github.com/IPGeolocation/ipgeo/ascii"
 	"github.com/IPGeolocation/ipgeo/cache"
 	"github.com/IPGeolocation/ipgeo/config"
 	"github.com/IPGeolocation/ipgeo/dbmanager"
@@ -36,6 +37,9 @@ func main() {
 }
 
 func printHelp() {
+	fmt.Println(ascii.GetAsciiArt() + "\n")
+	// Print in bold
+	fmt.Println("\033[1m" + "IP Geolocation CLI" + "\033[0m")
 	fmt.Println("Usage: ipgeo <cmd> [<opts>]")
 	fmt.Println("Commands:")
 	fmt.Println("  <ip/domain> - Look up details for an IP address or domain, e.g., 1.1.1.1 or google.com")
@@ -61,6 +65,7 @@ func printHelp() {
 	fmt.Println("  --json, -j                    - Output in JSON format.")
 	fmt.Println("  --yaml, -y                    - Output in YAML format.")
 	fmt.Println("  --xml, -x                     - Output in XML format.")
+	fmt.Println("  --table, -t                   - Output in CSV format.")
 	fmt.Println("  --no-cache                    - Bypass the cache and make a new API request.")
-	fmt.Println("  --no-color                     - Disable colorized output.")
+	fmt.Println("  --no-color                    - Disable colorized output.")
 }
