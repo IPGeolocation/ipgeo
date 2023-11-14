@@ -28,9 +28,11 @@ func main() {
 	case "cache":
 		cache.HandleCacheCommand(os.Args[2:])
 	case "version":
-		fmt.Println("ipgeo version 1.0.0")
+		fmt.Println("ipgeo cli version 1.0.0")
 	case "help":
 		printHelp()
+	case "ip":
+		apiclient.HandleIPGeolocationLookup("", os.Args[2:])
 	default:
 		apiclient.HandleIPGeolocationLookup(command, os.Args[2:])
 	}
@@ -43,6 +45,7 @@ func printHelp() {
 	fmt.Println("Usage: ipgeo <cmd> [<opts>]")
 	fmt.Println("Commands:")
 	fmt.Println("  <ip/domain> - Look up details for an IP address or domain, e.g., 1.1.1.1 or google.com")
+	fmt.Println("  ip          - Look up details for your own IP address.")
 	fmt.Println("  config      - Manage the configuration. Use 'login' or 'logout'.")
 	fmt.Println("  cache       - Manage the cache. Use 'clear', 'count', 'enable', 'disable', or 'status'.")
 	fmt.Println("  version     - Show current version.")

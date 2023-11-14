@@ -27,7 +27,9 @@ func HandleIPGeolocationLookup(ipOrDomain string, args []string) {
 
 	params := url.Values{}
 	params.Set("apiKey", apiKey)
-	params.Set("ip", ipOrDomain)
+	if ipOrDomain != "" {
+		params.Set("ip", ipOrDomain)
+	}
 	outputFormat, colorEnabled, compact, noCacheFlag, keyColorName, valueColorName := handleArgs(args, &params)
 	cacheKey := "ipgeo:" + ipOrDomain + ":" + params.Encode()
 	cacheEnabled, _ := cache.GetCacheStatus()
