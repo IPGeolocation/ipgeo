@@ -40,7 +40,6 @@ func main() {
 
 func printHelp() {
 	fmt.Println(ascii.GetAsciiArt() + "\n")
-	// Print in bold
 	fmt.Println("\033[1m" + "IP Geolocation CLI" + "\033[0m")
 	fmt.Println("Usage: ipgeo <cmd> [<opts>]")
 	fmt.Println("Commands:")
